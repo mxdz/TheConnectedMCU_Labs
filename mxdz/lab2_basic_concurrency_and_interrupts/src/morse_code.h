@@ -18,7 +18,6 @@
 
 #define BLINK_DELAY 1400
 #define DEBOUNCE_DELAY 10 
-#define MSG "test msg test msg"
 
 typedef enum states 
 {
@@ -26,13 +25,14 @@ typedef enum states
     START,
     PAUSE
     
-}STATES;
+} STATES;
 
-char encoded_msg_g[100];
+const uint8_t MSG[] = "test msg";
+uint8_t encoded_msg_g[100];
 volatile uint32_t cur_state_g, cur_delay_g;
 
 void delay(volatile uint32_t val);
 void init_app(void);
 void blink_leds(uint32_t mode);
 void display_msg(void);
-void morse_code_ecoding(char msg[], char *res);
+void morse_code_ecoding(uint8_t msg[], uint8_t *res);
